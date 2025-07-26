@@ -1,0 +1,386 @@
+/* Mobile Landscape Optimizations for Agent Dashboard */
+
+/* Ensure scrollbar hiding works across browsers */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+.scrollbar-hide::-webkit-scrollbar { 
+  display: none;  /* Safari and Chrome */
+}
+
+/* Mobile landscape specific breakpoints */
+@media (max-height: 500px) and (orientation: landscape) {
+  /* Compact header for mobile landscape */
+  .agent-header {
+    min-height: 48px !important;
+  }
+  
+  /* Reduce padding on mobile landscape */
+  .agent-container {
+    padding: 8px !important;
+  }
+  
+  /* Make cards more compact */
+  .agent-card {
+    padding: 12px !important;
+  }
+  
+  /* Reduce spacing between elements */
+  .agent-spacing {
+    gap: 8px !important;
+  }
+  
+  /* Make text smaller for better fit */
+  .agent-text-responsive {
+    font-size: 14px !important;
+    line-height: 1.4 !important;
+  }
+  
+  /* Optimize navigation for mobile landscape */
+  .agent-nav-mobile {
+    flex-direction: row !important;
+    overflow-x: auto !important;
+    gap: 4px !important;
+  }
+  
+  /* Make buttons more compact */
+  .agent-btn-compact {
+    padding: 6px 12px !important;
+    font-size: 12px !important;
+  }
+  
+  /* Optimize forms for mobile landscape */
+  .agent-form-mobile {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 12px !important;
+  }
+  
+  /* Table optimizations */
+  .agent-table-mobile {
+    font-size: 12px !important;
+  }
+  
+  .agent-table-mobile th,
+  .agent-table-mobile td {
+    padding: 6px !important;
+  }
+}
+
+/* Medium mobile landscape (tablets) */
+@media (min-width: 768px) and (max-height: 600px) and (orientation: landscape) {
+  .agent-layout-tablet {
+    grid-template-columns: 200px 1fr !important;
+  }
+  
+  .agent-nav-tablet {
+    position: sticky !important;
+    top: 60px !important;
+    height: calc(100vh - 60px) !important;
+  }
+}
+
+/* Large mobile landscape (small laptops) */
+@media (min-width: 1024px) and (max-height: 700px) and (orientation: landscape) {
+  .agent-layout-desktop {
+    grid-template-columns: 250px 1fr !important;
+  }
+  
+  .agent-content-desktop {
+    max-height: calc(100vh - 80px) !important;
+    overflow-y: auto !important;
+  }
+}
+
+/* Typography Consistency */
+.info-message {
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  line-height: 1.5 !important;
+  color: hsl(var(--muted-foreground)) !important;
+  margin-bottom: 16px !important;
+}
+
+.info-message-large {
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  line-height: 1.5 !important;
+  color: hsl(var(--foreground)) !important;
+  margin-bottom: 8px !important;
+}
+
+.info-message-small {
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  line-height: 1.4 !important;
+  color: hsl(var(--muted-foreground)) !important;
+  margin-bottom: 8px !important;
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+  .info-message {
+    font-size: 12px !important;
+    margin-bottom: 8px !important;
+  }
+
+  .info-message-large {
+    font-size: 14px !important;
+    margin-bottom: 6px !important;
+  }
+
+  .info-message-small {
+    font-size: 10px !important;
+    margin-bottom: 4px !important;
+  }
+}
+
+/* Utility classes for mobile landscape */
+.mobile-landscape-hidden {
+  @media (max-height: 500px) and (orientation: landscape) {
+    display: none !important;
+  }
+}
+
+.mobile-landscape-visible {
+  display: none !important;
+  @media (max-height: 500px) and (orientation: landscape) {
+    display: block !important;
+  }
+}
+
+.mobile-landscape-flex {
+  @media (max-height: 500px) and (orientation: landscape) {
+    display: flex !important;
+  }
+}
+
+.mobile-landscape-grid {
+  @media (max-height: 500px) and (orientation: landscape) {
+    display: grid !important;
+  }
+}
+
+/* Touch-friendly sizing */
+.touch-target {
+  min-height: 44px !important;
+  min-width: 44px !important;
+}
+
+/* Optimize z-index layers for mobile */
+.agent-modal-mobile {
+  z-index: 9999 !important;
+}
+
+.agent-nav-mobile {
+  z-index: 1000 !important;
+}
+
+.agent-header-mobile {
+  z-index: 1001 !important;
+}
+
+/* Responsive typography scale */
+@media (max-height: 500px) and (orientation: landscape) {
+  .text-responsive-xs { font-size: 10px !important; line-height: 1.3 !important; }
+  .text-responsive-sm { font-size: 12px !important; line-height: 1.4 !important; }
+  .text-responsive-base { font-size: 14px !important; line-height: 1.4 !important; }
+  .text-responsive-lg { font-size: 16px !important; line-height: 1.5 !important; }
+  .text-responsive-xl { font-size: 18px !important; line-height: 1.5 !important; }
+  .text-responsive-2xl { font-size: 20px !important; line-height: 1.6 !important; }
+}
+
+/* Spacing utilities for mobile landscape */
+@media (max-height: 500px) and (orientation: landscape) {
+  .space-mobile-1 { gap: 4px !important; }
+  .space-mobile-2 { gap: 8px !important; }
+  .space-mobile-3 { gap: 12px !important; }
+  .space-mobile-4 { gap: 16px !important; }
+  
+  .p-mobile-1 { padding: 4px !important; }
+  .p-mobile-2 { padding: 8px !important; }
+  .p-mobile-3 { padding: 12px !important; }
+  .p-mobile-4 { padding: 16px !important; }
+  
+  .m-mobile-1 { margin: 4px !important; }
+  .m-mobile-2 { margin: 8px !important; }
+  .m-mobile-3 { margin: 12px !important; }
+  .m-mobile-4 { margin: 16px !important; }
+}
+
+/* Agent Login Button Mobile Optimizations */
+@media (max-height: 500px) and (orientation: landscape) {
+  /* Compact agent login button for mobile landscape */
+  .agent-login-btn {
+    padding: 4px 8px !important;
+    font-size: 10px !important;
+    min-height: 32px !important;
+    min-width: 44px !important;
+  }
+
+  .agent-login-btn svg {
+    width: 12px !important;
+    height: 12px !important;
+    margin-right: 2px !important;
+  }
+
+  .agent-login-btn span {
+    font-size: 10px !important;
+    line-height: 1.2 !important;
+  }
+}
+
+/* Customer Mobile Landscape Optimizations */
+@media (max-height: 500px) and (orientation: landscape) {
+  /* Customer page headers */
+  .customer-header {
+    min-height: 40px !important;
+    padding: 4px 12px !important;
+  }
+
+  /* Customer card optimizations */
+  .customer-card {
+    padding: 8px !important;
+    margin-bottom: 8px !important;
+  }
+
+  /* Package cards in landscape */
+  .package-card-mobile {
+    padding: 12px !important;
+    min-height: 120px !important;
+  }
+
+  .package-card-mobile img {
+    width: 60px !important;
+    height: 60px !important;
+  }
+
+  /* Customer bottom navigation */
+  .customer-nav-mobile {
+    height: 48px !important;
+    padding: 4px !important;
+  }
+
+  .customer-nav-mobile .nav-item {
+    min-height: 40px !important;
+    padding: 4px 8px !important;
+  }
+
+  .customer-nav-mobile svg {
+    width: 16px !important;
+    height: 16px !important;
+  }
+
+  .customer-nav-mobile span {
+    font-size: 9px !important;
+    line-height: 1.1 !important;
+  }
+
+  /* Customer dashboard stats */
+  .customer-stats-grid {
+    gap: 8px !important;
+  }
+
+  .customer-stats-card {
+    padding: 8px !important;
+    min-height: 80px !important;
+  }
+
+  .customer-stats-card svg {
+    width: 16px !important;
+    height: 16px !important;
+  }
+
+  .customer-stats-card .stat-number {
+    font-size: 18px !important;
+    line-height: 1.2 !important;
+  }
+
+  .customer-stats-card .stat-label {
+    font-size: 9px !important;
+    line-height: 1.1 !important;
+  }
+
+  /* Customer booking cards */
+  .booking-card-mobile {
+    padding: 8px !important;
+    gap: 8px !important;
+  }
+
+  .booking-card-mobile .booking-image {
+    width: 50px !important;
+    height: 50px !important;
+  }
+
+  .booking-card-mobile .booking-title {
+    font-size: 12px !important;
+    line-height: 1.3 !important;
+  }
+
+  .booking-card-mobile .booking-details {
+    font-size: 10px !important;
+    line-height: 1.2 !important;
+  }
+
+  .booking-card-mobile .booking-actions {
+    gap: 4px !important;
+  }
+
+  .booking-card-mobile .booking-actions button {
+    padding: 4px 8px !important;
+    font-size: 9px !important;
+    min-height: 28px !important;
+  }
+
+  /* Customer login/auth modals */
+  .customer-auth-modal {
+    max-height: 85vh !important;
+    margin: 8px !important;
+  }
+
+  .customer-auth-modal .modal-header {
+    padding: 12px !important;
+  }
+
+  .customer-auth-modal .modal-content {
+    padding: 12px !important;
+    gap: 8px !important;
+  }
+
+  .customer-auth-modal input {
+    height: 36px !important;
+    font-size: 12px !important;
+  }
+
+  .customer-auth-modal button {
+    height: 36px !important;
+    font-size: 12px !important;
+    padding: 8px 16px !important;
+  }
+}
+
+/* Header optimizations for all mobile devices */
+@media (max-width: 640px) {
+  .app-header {
+    padding: 8px 16px !important;
+  }
+
+  .app-header-content {
+    gap: 8px !important;
+  }
+
+  .app-header-actions {
+    gap: 4px !important;
+  }
+}
+
+/* Ensure proper viewport handling */
+@supports (-webkit-touch-callout: none) {
+  /* iOS Safari specific fixes */
+  .agent-container-ios {
+    padding-bottom: env(safe-area-inset-bottom) !important;
+  }
+
+  .agent-header-ios {
+    padding-top: env(safe-area-inset-top) !important;
+  }
+}

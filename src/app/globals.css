@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import mobile landscape optimizations for agent dashboard */
+@import './agent-dashboard-mobile.css';
+
+@layer base {
+  :root {
+    --background: 60 56% 91%;
+    --foreground: 20 15% 20%;
+    --card: 60 50% 95%;
+    --card-foreground: 20 15% 20%;
+    --popover: 60 50% 95%;
+    --popover-foreground: 20 15% 20%;
+    --primary: 16 100% 66%;
+    --primary-foreground: 20 15% 20%;
+    --secondary: 60 48% 95.9%;
+    --secondary-foreground: 24 9.8% 10%;
+    --muted: 60 48% 93%;
+    --muted-foreground: 24 5.4% 63.9%;
+    --accent: 30 48% 66%;
+    --accent-foreground: 20 15% 20%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 60 9.1% 97.8%;
+    --border: 60 5.9% 85%;
+    --input: 60 5.9% 85%;
+    --ring: 30 48% 66%;
+    --radius: 0.75rem;
+  }
+ 
+  .dark {
+    --background: 20 15% 10%;
+    --foreground: 60 56% 91%;
+    --card: 20 15% 15%;
+    --card-foreground: 60 56% 91%;
+    --popover: 20 15% 10%;
+    --popover-foreground: 60 56% 91%;
+    --primary: 16 100% 66%;
+    --primary-foreground: 20 15% 10%;
+    --secondary: 20 15% 18%;
+    --secondary-foreground: 60 56% 91%;
+    --muted: 20 15% 18%;
+    --muted-foreground: 24 5.4% 63.9%;
+    --accent: 30 48% 66%;
+    --accent-foreground: 20 15% 10%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 60 9.1% 97.8%;
+    --border: 20 15% 25%;
+    --input: 20 15% 25%;
+    --ring: 30 48% 66%;
+  }
+}
+ 
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    font-family: 'Noto Sans', 'Roboto', 'Arial', 'Segoe UI', sans-serif;
+    @apply bg-background text-foreground;
+  }
+  
+  /* Mobile viewport height fixes */
+  html, body {
+    height: 100%;
+    overflow-x: hidden;
+  }
+  
+  /* Fix for mobile browsers that don't handle 100vh properly */
+  .min-h-screen {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+  }
+  
+  /* Ensure proper scrolling on mobile */
+  .overflow-y-auto {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Ensure body allows scrolling */
+  body {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Fix for mobile scrolling issues */
+  * {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+.rupee-font {
+  font-family: 'Noto Sans', 'Roboto', 'DejaVu Sans', 'Arial Unicode MS', 'Arial', 'Segoe UI', sans-serif;
+}
