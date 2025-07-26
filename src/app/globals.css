@@ -153,6 +153,28 @@
     }
   }
   
+  /* Override scroll locking for auth pages */
+  body[data-scroll-locked] .auth-container {
+    overflow-y: auto !important;
+    pointer-events: auto !important;
+  }
+  
+  /* Force enable scrolling on auth pages */
+  .auth-container {
+    overflow-y: auto !important;
+    pointer-events: auto !important;
+  }
+  
+  /* Override any scroll locking on auth pages */
+  body[data-scroll-locked] {
+    overflow-y: auto !important;
+  }
+  
+  /* Ensure auth pages are always scrollable */
+  .auth-container * {
+    pointer-events: auto !important;
+  }
+  
   /* Sticky bottom for important links */
   .sticky-bottom {
     position: relative;

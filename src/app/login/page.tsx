@@ -46,6 +46,19 @@ export default function LoginPage() {
   const { login } = useAuth();
   const router = useRouter();
 
+  // Remove scroll locking on auth pages
+  React.useEffect(() => {
+    document.body.style.overflow = 'auto';
+    document.body.style.pointerEvents = 'auto';
+    document.body.removeAttribute('data-scroll-locked');
+    
+    return () => {
+      // Restore original state when component unmounts
+      document.body.style.overflow = '';
+      document.body.style.pointerEvents = '';
+    };
+  }, []);
+
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
