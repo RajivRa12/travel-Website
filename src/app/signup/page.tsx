@@ -64,6 +64,37 @@ export default function SignUpPage() {
     setError("");
     setMessage("");
 
+    // Validate required fields
+    if (!formData.name.trim()) {
+      alert("Please enter your full name.");
+      setIsLoading(false);
+      return;
+    }
+
+    if (!formData.email.trim()) {
+      alert("Please enter your email address.");
+      setIsLoading(false);
+      return;
+    }
+
+    if (!formData.phone.trim()) {
+      alert("Please enter your phone number.");
+      setIsLoading(false);
+      return;
+    }
+
+    if (!formData.password.trim()) {
+      alert("Please enter your password.");
+      setIsLoading(false);
+      return;
+    }
+
+    if (!formData.confirmPassword.trim()) {
+      alert("Please confirm your password.");
+      setIsLoading(false);
+      return;
+    }
+
     try {
       // Basic validation
       if (formData.password !== formData.confirmPassword) {
@@ -101,12 +132,12 @@ export default function SignUpPage() {
   };
 
   return (
-    <div className="bg-background text-foreground">
+    <div className="bg-background text-foreground auth-container">
       <div className="mx-auto max-w-2xl">
-        <div className="min-h-screen">
+        <div className="flex flex-col min-h-screen">
           <SignUpHeader />
-          <main className="p-3 xs:p-6 agent-container">
-            <div className="max-w-md mx-auto space-y-4 xs:space-y-6 py-4 pb-8">
+          <main className="flex-1 overflow-y-auto p-3 xs:p-6 agent-container">
+            <div className="max-w-md mx-auto space-y-4 xs:space-y-6 py-4 pb-16">
               <div className="text-center space-y-2">
                 <div className="mx-auto h-12 w-12 xs:h-16 xs:w-16 bg-primary rounded-lg flex items-center justify-center">
                   <UserPlus className="h-6 w-6 xs:h-8 xs:w-8 text-primary-foreground" />
@@ -281,7 +312,7 @@ export default function SignUpPage() {
               </Card>
 
               {/* Sign In Link */}
-              <div className="text-center space-y-3 pb-8 mt-8">
+              <div className="text-center space-y-3 pb-8 mt-8 sticky-bottom">
                 <p className="text-xs xs:text-sm text-muted-foreground text-responsive-xs">
                   Already have an account?{" "}
                   <Link

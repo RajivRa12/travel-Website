@@ -69,24 +69,104 @@
   
   /* Fix for mobile browsers that don't handle 100vh properly */
   .min-h-screen {
+    min-height: 100dvh;
     min-height: 100vh;
     min-height: -webkit-fill-available;
+  }
+  
+  /* Auth container specific styles */
+  .auth-container {
+    min-height: 100dvh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
   
   /* Ensure proper scrolling on mobile */
   .overflow-y-auto {
     -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
   }
   
   /* Ensure body allows scrolling */
   body {
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+  
+  /* Enable vertical scrolling for auth pages */
+  .auth-container {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
   }
   
   /* Fix for mobile scrolling issues */
   * {
     -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Subtle scroll momentum */
+  .auth-container,
+  .overflow-y-auto {
+    scroll-behavior: smooth;
+    scroll-padding: 1rem;
+  }
+  
+  /* Reduce scroll sensitivity on mobile */
+  @media (max-width: 768px) {
+    .auth-container,
+    .overflow-y-auto {
+      scroll-snap-type: y proximity;
+    }
+  }
+  
+  /* Mobile landscape specific fixes */
+  @media screen and (orientation: landscape) and (max-height: 500px) {
+    .min-h-screen {
+      min-height: 100vh;
+      min-height: -webkit-fill-available;
+    }
+    
+    /* Ensure content is scrollable in landscape */
+    .flex-1 {
+      flex: 1 1 auto;
+      min-height: 0;
+    }
+    
+    /* Better spacing for landscape mode */
+    .pb-16 {
+      padding-bottom: 4rem;
+    }
+    
+    /* Smooth scrolling for landscape */
+    .auth-container {
+      scroll-behavior: smooth;
+      scroll-padding-bottom: 2rem;
+    }
+  }
+  
+  /* iOS Safari specific fixes */
+  @supports (-webkit-touch-callout: none) {
+    .min-h-screen {
+      min-height: -webkit-fill-available;
+    }
+  }
+  
+  /* Sticky bottom for important links */
+  .sticky-bottom {
+    position: relative;
+    z-index: 10;
+  }
+  
+  /* Mobile landscape specific sticky positioning */
+  @media screen and (orientation: landscape) and (max-height: 500px) {
+    .sticky-bottom {
+      position: sticky;
+      bottom: 0;
+      background: linear-gradient(to top, var(--background) 80%, transparent);
+      padding-top: 1rem;
+    }
   }
 }
 

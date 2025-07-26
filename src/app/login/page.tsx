@@ -51,6 +51,19 @@ export default function LoginPage() {
     setIsLoading(true);
     setError("");
 
+    // Validate required fields
+    if (!email.trim()) {
+      alert("Please enter your email address.");
+      setIsLoading(false);
+      return;
+    }
+
+    if (!password.trim()) {
+      alert("Please enter your password.");
+      setIsLoading(false);
+      return;
+    }
+
     try {
       // Simulate API call delay
       await new Promise((resolve) => setTimeout(resolve, 1000));
@@ -72,12 +85,12 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="bg-background text-foreground">
+    <div className="bg-background text-foreground auth-container">
       <div className="mx-auto max-w-2xl">
-        <div className="min-h-screen">
+        <div className="flex flex-col min-h-screen">
           <LoginHeader />
-          <main className="p-3 xs:p-6 agent-container">
-            <div className="max-w-md mx-auto space-y-4 xs:space-y-6 py-4 pb-8">
+          <main className="flex-1 overflow-y-auto p-3 xs:p-6 agent-container">
+            <div className="max-w-md mx-auto space-y-4 xs:space-y-6 py-4 pb-16">
               <div className="text-center space-y-2">
                 <div className="mx-auto h-12 w-12 xs:h-16 xs:w-16 bg-primary rounded-lg flex items-center justify-center">
                   <User className="h-6 w-6 xs:h-8 xs:w-8 text-primary-foreground" />
@@ -189,7 +202,7 @@ export default function LoginPage() {
               </Card>
 
               {/* Sign Up Link */}
-              <div className="text-center space-y-3 pb-8 mt-8">
+              <div className="text-center space-y-3 pb-8 mt-8 sticky-bottom">
                 <p className="text-xs xs:text-sm text-muted-foreground text-responsive-xs">
                   Don't have an account?{" "}
                   <Link
